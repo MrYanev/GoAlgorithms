@@ -3,10 +3,13 @@ package module01
 func Factor(primes []int, number int) []int {
 	var ans []int
 	for _, num := range primes {
-		if number%num == 0 {
+		for number%num == 0 {
+			ans = append(ans, number)
 			number = number / num
-			ans = append(ans, num)
 		}
+	}
+	if number > 1 {
+		ans = append(ans, number)
 	}
 	return ans
 }
