@@ -6,6 +6,12 @@ func InsertionSort(list []int) []int {
 		if len(sorted) == 0 {
 			sorted = append(sorted, i)
 		}
+		for j := range sorted {
+			if i < j {
+				sorted = append(sorted[:j], append([]int{i}, sorted[j:]...)...)
+			}
+		}
+		return append(sorted, i)
 
 	}
 	return sorted
